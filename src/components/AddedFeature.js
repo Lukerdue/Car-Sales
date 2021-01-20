@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const AddedFeature = props => {
   function clickHandler(e){
     e.preventDefault();
-    removeFeature(props.feature.id)
+    removeFeature(props.feature)
   }
   return (
     <li>
@@ -18,7 +18,11 @@ const AddedFeature = props => {
 
 const mapStateToProps=(state, ownProps)=>{
   return{
-    feature: state.features[ownProps.feature.id]
+    feature: state.features.find(feature=>{
+      if(feature.id === ownProps.feature.id){
+        return feature
+      }
+    })
   }
 }
 

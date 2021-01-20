@@ -11,7 +11,7 @@ const AdditionalFeature = props => {
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button">Add</button>
+      <button className="button" onClick={clickHandler}>Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
   );
@@ -19,7 +19,11 @@ const AdditionalFeature = props => {
 
 const mapStateToProps=(state, ownProps)=>{
   return{
-    additionalFeatures: state.AdditionalFeatures[ownProps.feature.id]
+    feature: state.additionalFeatures.find(feature=>{
+      if(feature.id === ownProps.feature.id){
+        return feature
+      }
+    })
   }
 }
 

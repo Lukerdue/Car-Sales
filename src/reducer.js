@@ -15,25 +15,27 @@ const initialstate = {
     ]
   };
 
-export const reducer = (state = initialState, action) =>{
+export const reducer = (state = initialstate, action) =>{
     switch(action.type){
         case("REMOVE_FEATURE"):
             return{...state,
             features: state.features.filter(feat=>{
-                if(action.payload !== feat.id){
-                    return feat
-                }
-            })
-            }
-        case("ADD_FEATURE"):
-            return{...state,
-            features: [...state.features, action.payload],
-            additionalFeatures: state.additionalFeatures.filter(feat=>{
                 if(action.payload.id !== feat.id){
                     return feat
                 }
-            })
+            }),
+            additionalPrice: state.additionalPrice - action.payload.price
             }
-        default: return{state}
+        case("ADD_FEATURE"):
+            return{...state,
+                additionalPrice: state.additionalPrice + action.payload.price,
+                features: [...state.features, action.payload],
+                additionalFeatures: state.additionalFeatures.filter(feat=>{
+                    if(action.payload.id !== feat.id){
+                        return feat
+                    }
+                })
+            }
+        default: return{...state}
     }
 }

@@ -3,5 +3,5 @@ export const removeFeature=(data)=>{
 }
 
 export const addFeature=(data)=>{
-    return{type: "ADD_REFTURE", payload: data}
+    return{type: "ADD_FEATURE", payload: data}
 }
