@@ -5,8 +5,8 @@ import { addFeature } from '../actions'
 
 const AdditionalFeature = props => {
   const clickHandler=(e)=>{
+    props.addFeature(props.feature);
     e.preventDefault();
-    addFeature(props.feature)
   }
   return (
     <li>

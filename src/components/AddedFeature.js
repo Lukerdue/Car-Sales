@@ -18,7 +18,7 @@ const AddedFeature = props => {
 
 const mapStateToProps=(state, ownProps)=>{
   return{
-    feature: state.features.find(feature=>{
+    feature: state.car.features.find(feature=>{
       if(feature.id === ownProps.feature.id){
         return feature
       }
@@ -26,4 +26,4 @@ const mapStateToProps=(state, ownProps)=>{
   }
 }
 
-export default connect(mapStateToProps, {removeFeature})(AddedFeature);
+export default connect(mapStateToProps, { removeFeature })(AddedFeature);
