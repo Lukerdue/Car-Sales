@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const AddedFeature = props => {
   function clickHandler(e){
     e.preventDefault();
-    removeFeature(props.feature)
+    props.removeFeature(props.feature)
   }
   return (
     <li>
