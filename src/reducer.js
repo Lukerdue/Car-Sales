@@ -17,6 +17,14 @@ const initialstate = {
 
 export const reducer = (state = initialState, action) =>{
     switch(action.type){
+        case("REMOVE_FEATURE"):
+            return{...state,
+            features: state.features.filter(feat=>{
+                if(action.payload !== feat.id){
+                    return feat
+                }
+            })
+            }
         default: return{state}
     }
 }
