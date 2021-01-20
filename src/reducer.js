@@ -25,6 +25,15 @@ export const reducer = (state = initialState, action) =>{
                 }
             })
             }
+        case("ADD_FEATURE"):
+            return{...state,
+            features: [...state.features, action.payload],
+            additionalFeatures: state.additionalFeatures.filter(feat=>{
+                if(action.payload.id !== feat.id){
+                    return feat
+                }
+            })
+            }
         default: return{state}
     }
 }
